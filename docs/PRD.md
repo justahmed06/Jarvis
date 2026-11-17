@@ -1,36 +1,35 @@
 # Jarvis — Hack Day PRD
-Version: 1.0 | Planning only | 17 November 2026
+Version: 1.1 | Planning only | 17 November 2026
 
 ## Event and compliance
-MLH Hack Day, SZABIST Karachi, 18 November 2026. Arrive before 9:00 AM for organizer briefing/questions (9:00–9:15). Official organizer-announced submission cutoff: **12:30 PM PKT**; internal target **12:15 PM**. Public schedule previously listed hacking starting at 10:15 AM; **confirm implementation start at briefing**. Do not begin coding or project-specific design/assets before authorization. Organizers explicitly permitted planning documents; cite AI tools and any reused public libraries in submission.
+MLH Hack Day, SZABIST Karachi, 18 November 2026. Arrive before 9:00 AM for briefing/questions. Organizer-announced submission cutoff: **12:30 PM PKT**; internal target **12:15 PM**. Confirm coding start and rules at briefing. No source code, scaffolding, custom UI/assets or implementation before authorization. Planning documents are permitted according to organizer guidance; disclose AI tools and public libraries. Confirm whether external AI assistants may act as technical advisors.
 
 ## Product proposition
-Jarvis is a **Gemini-powered workspace companion** that understands what a user is looking at and helps convert observations into useful, permission-based next steps.
+Jarvis is a **Gemini-powered, supervised agentic workspace companion** that understands visible context, turns natural-language goals into a short plan, invokes bounded tools, observes their results, and explains completed work. It is not merely screenshot chat.
 
-## Who / problem
-For a student or developer, switching among screens, tasks and explanations disrupts work. A chat-only assistant lacks visual workspace context and action follow-through.
+## Target user and problem
+Students and developers lose momentum switching between errors, notes and tasks. Existing chat tools may explain a screenshot but do not reliably follow through on a multi-step goal.
 
 ## Hackathon outcome
-Deliver one genuine, understandable multimodal interaction: user supplies a screenshot, asks a question, receives Gemini-grounded guidance and optionally approves a safe local follow-up action.
+Demonstrate one authentic multimodal, multi-step **observe → plan → act → verify → report** loop, powered by a real Gemini API call. Build a browser-based vertical slice of the eventual Windows desktop companion, not a throwaway parallel product.
 
-## Primary user journey
-1. User opens a browser-based Jarvis prototype and sees clear privacy/consent controls.
-2. User uploads a screenshot and asks a question in natural language.
-3. Server passes image + question to Gemini and returns a useful explanation tied to observable evidence.
-4. Gemini can suggest a structured local task (title, optional description); app validates before displaying.
-5. User explicitly approves; app adds the task to a local session checklist. No privileged computer operation.
-6. User can clear the image and conversation.
+## Primary journey
+1. User voluntarily uploads a non-sensitive screenshot and describes a goal, such as organizing the next steps to resolve a visible error.
+2. Gemini identifies visible evidence and produces a bounded structured plan with tool proposals.
+3. Server validates tool names, arguments and step limits. UI displays the plan and required approval.
+4. On approval, a deterministic local tool dispatcher performs safe in-app actions (e.g. create a task and append a work note); it never executes arbitrary model text.
+5. Jarvis reads actual tool results, reports successes/failures and remaining work, and can suggest the next safe step. No claim that it repaired code or controlled Windows.
+6. User can reject, stop or clear the session.
 
 ## Success criteria
-- Working Gemini response about a real user-provided screenshot, not a mocked output.
-- Honest uncertainty if the image is unreadable, ambiguous or out of scope.
-- At least one structured, schema-validated action proposal requiring explicit approval.
-- User can reject a proposal without side effects.
-- No API key shipped to the browser, logs, README or repository.
-- Stable 2-minute demonstration, with a fallback screenshot if screen sharing is unstable.
+- Real image-grounded Gemini reasoning and a relevant goal-oriented plan.
+- At least one end-to-end **two-step tool workflow** demonstrated with actual results, not mocked success.
+- Two allowlisted local tool capabilities if time permits: `create_local_task` and `append_work_note`; optional `mark_task_complete` only after core workflow passes.
+- Visible plan, approval, execution status and result summary.
+- Strict validation, bounded steps, safe rejection, API secret server-side, reliable two-minute demo.
 
-## Boundaries
-No autonomous desktop control, background always-listening microphone, real-time screen streaming, Gmail access, persistent cross-session memory, codebase ingestion or full Electron packaging in the hackathon MVP. Voice input/output is stretch-only.
+## Safety boundaries
+No arbitrary shell commands, filesystem modifications, hidden screen capture, silent surveillance, external account actions, privileged OS automation or background microphone. Explicit consent for sensitive actions. If an action fails, report failure; do not invent outcomes. Voice is stretch-only.
 
-## Relationship to long-term Jarvis
-This is a disposable/portable vertical slice, **not** the final desktop platform. Production vision remains a Windows-first Electron + TypeScript intelligent companion with voice, screen and project awareness, proactive support, permissions and eventual Android integration. Architecture/design choices here must not misrepresent hackathon features as implemented production capabilities.
+## Long-term product
+Keep the same repository and evolve through releases toward Windows-first Electron + React + TypeScript, secure native IPC, voice, live screen awareness, persistent memory, developer tools and Android integration. Gemini is the initial runtime provider, **not a permanent provider lock-in**: future adapters may support other cloud APIs and lightweight local fallback models. Prototype interfaces may require refactoring; avoid promising unchanged code.
