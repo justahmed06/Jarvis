@@ -1,54 +1,50 @@
 # Jarvis — Demo and Hack Day Runbook
-Version: 1.0 | Planning only
+Version: 1.1 | Planning only
 
-## Time plan (PKT, 18 Nov 2026)
-- Before 9:00: arrival, check power/Wi-Fi, account sessions.
-- 9:00–9:15: organizer briefing and clarify authorization to start coding, team rules, submission link and allowed tools.
-- 9:15–10:15: wait for start authorization; perform only rule-permitted non-coding setup.
-- 10:15–10:35: project scaffold and first real Gemini result (only if start authorized).
-- 10:35–11:15: screenshot upload + contextual answer.
-- 11:15–11:40: schema-validated task proposal + explicit approval/rejection.
-- 11:40–12:00: testing, error handling, minimal polish.
-- 12:00–12:15: repository documentation and **submit**.
-- 12:30: organizer-announced hard submission cutoff; judging begins afterward.
-Times are targets and must be revised if briefing changes the start.
+## Timing (PKT, 18 Nov 2026)
+- Before 9:00: arrive, power/Wi-Fi/account readiness.
+- 9:00–9:15: confirm start authorization, submission portal, team rules, external AI assistants, Google requirements and 12:30 cutoff.
+- Before authorized start: no implementation.
+- 10:15–10:35: scaffold and first real Gemini multimodal call, if authorized.
+- 10:35–11:05: screenshot interpretation and structured plan.
+- 11:05–11:40: approved local tool dispatcher, two-step workflow, result ledger.
+- 11:40–12:00: failure tests, polish only if safe.
+- 12:00–12:15: README, demo rehearsal, submit.
+- 12:30: hard organizer-announced cutoff; adjust schedule if start changes.
 
-## Two-minute demo script
-1. Introduce the problem: a conventional chatbot doesn't know what you're looking at.
-2. Upload an actual screenshot from the event (created during authorized build/demo period), ask a concrete question about a visible problem.
-3. Show Jarvis identifying specific on-screen details and responding with useful, bounded guidance.
-4. Ask it to suggest one follow-up task. Show the approval card; reject once to prove it does not act automatically, then approve an appropriate task.
-5. Show the task on local checklist and state plainly what is *not* yet built (native computer control, persistent memory, always-on voice).
+## Two-minute demo
+1. "Jarvis doesn't just explain your screen; it helps follow through on a goal."
+2. Upload a non-sensitive event-eligible screenshot showing a coding problem or study task. Ask: "Understand this and organize what I need to do next."
+3. Show Gemini's screenshot-grounded observation and short two-step plan.
+4. Inspect the action plan; approve. Jarvis creates an actual local task and appends a work note using separate allowlisted tools.
+5. Show both resulting records and execution ledger. Optionally demonstrate rejection of a new plan.
+6. Explain honestly: this is supervised in-app autonomy, not desktop control; Electron, native tools, voice, memory and additional model providers are roadmap.
 
-## Demo safety/fallback
-- Use non-sensitive example screens; avoid personal email, financial or health data.
-- Keep a second eligible screenshot captured/created during the official event as backup.
-- Have manual text input ready if microphone/browser speech support fails.
-- If API limits occur, present an honest failure message; never impersonate a live Gemini response with canned output.
+## Safety and fallback
+- No private email, health, finance, credentials or sensitive screenshots.
+- Have a second eligible screenshot captured during the event.
+- If the second tool is blocked, demo one real validated tool with accurate status, not simulated success.
+- If Gemini fails, show a genuine error, not canned output disguised as a live response.
 
 ## Submission checklist
-- [ ] Official team/individual rules and start authorization confirmed.
-- [ ] Repository created **after authorized coding start** if required by event rules, or planning-docs-only repo accepted.
-- [ ] Google Gemini API is actually invoked and clearly credited.
-- [ ] README lists setup, screenshot understanding, action permissions, model, limitations and AI coding tools.
-- [ ] No API keys, tokens or `.env` committed.
-- [ ] A real multimodal test and approval/reject test have passed.
-- [ ] Working demo URL or reproducible instructions available as requested by judges.
-- [ ] Submission portal entry complete by **12:15 target / 12:30 deadline**.
+- [ ] Start authorization, team rules and external advisor policy confirmed.
+- [ ] Gemini invoked with real image and goal; actual model documented.
+- [ ] At least one approved tool executed and result verified; aim for two.
+- [ ] User rejection/stop works without unapproved effects.
+- [ ] README includes Google usage, AI tool credits, setup and limitations.
+- [ ] No API keys or `.env` committed.
+- [ ] Demo and submission completed by 12:15 target / 12:30 deadline.
+- [ ] Submission URL and access verified.
 
-## Personal account-readiness checklist (user must confirm; not remotely verified)
-- [ ] Antigravity installed on Windows, signed into intended Google account, can open agent workspace.
-- [ ] Google AI Studio loads on that account and shows Gemini models.
-- [ ] A Gemini API key exists for a selected project (do not share its value).
-- [ ] AI Studio shows accessible image-capable model and available rate/quota limits; billing requirement understood.
-- [ ] Git + Node.js installed and available in terminal; GitHub authenticated.
-- [ ] Internet, charging cable and backup connectivity available.
-- [ ] Confirm exact submission URL and account access with event organizers.
+## Readiness checks (user-confirmed where applicable)
+- [ ] Antigravity App/IDE ready and project folder opened.
+- [ ] Gemini API key and image-capable model/quota verified without sharing key.
+- [ ] Node/npm, Git and GitHub authentication working.
+- [ ] Charging cable, internet backup and submission account ready.
 
-## References (checked 17 Nov 2026)
+## References
 - https://events.mlh.com/events/15689-hack-day-szabist-university-karachi
 - https://antigravity.google/docs/getting-started
 - https://aistudio.google.com/docs/get-started
 - https://ai.google.dev/gemini-api/docs/image-understanding
 - https://ai.google.dev/gemini-api/docs/structured-output
-- https://ai.google.dev/gemini-api/docs/pricing
