@@ -1,37 +1,35 @@
 # Jarvis Hack Day — Instructions for Google Antigravity
-Version: 1.0 | Planning context; DO NOT EXECUTE BEFORE ORGANIZER-APPROVED START
+Version: 1.1 | Planning only; DO NOT IMPLEMENT BEFORE ORGANIZER AUTHORIZATION
 
 ## Mission
-Build the smallest credible demonstration of Jarvis, a Gemini-powered multimodal workspace companion, within a short, time-boxed student hackathon. Real working behavior beats ambitious feature lists.
+Build the smallest **genuinely agentic** Gemini-powered workspace companion: observe a selected screenshot, plan bounded steps, execute approved local tools, and report verified results. Optimize for a credible live demo by the 12:15 PM internal target, not for feature count.
 
 ## Read first
-Read `PRD.md`, `MVP.md`, `ARCHITECTURE.md`, and `DEMO_PLAN.md`. Treat these as planning constraints, not evidence that any application exists or that implementation permission has started.
+Read `docs/PRD.md`, `docs/MVP.md`, `docs/ARCHITECTURE.md`, and `docs/DEMO_PLAN.md` relative to repository root. These are plans, not implementation authorization.
 
-## Hard compliance gate
-Before the organizer-authorized coding period: **NO** project source code, scaffolding, packages committed as project code, project-specific generated UI, wireframes, screenshots/assets for submission, or deployment. Documentation, account setup, tool installation and non-project-specific learning only. At the start, verify the announced 12:30 PM submission deadline and any rule revisions.
+## Compliance
+No project code, scaffolding, UI/assets, project-specific designs or deployment before organizers authorize hacking. Planning and general account/tool setup only. Confirm rule updates, external AI assistant allowance and 12:30 PM deadline during briefing.
 
-## Engineering priorities
-1. Implement P0 end-to-end: screenshot upload -> Gemini multimodal response -> validated action proposal -> explicit approval -> local checklist.
-2. Keep Gemini substantive and demonstrable, not a nominal API call.
-3. Keep API keys server-side; never commit secrets or expose them in browser.
-4. Validate input and output; fail safely with useful errors.
-5. Build the simplest dependable web prototype. Do not replace it with Electron unless explicitly approved after P0 is complete.
-6. Add voice only after P0 passes verification and timing permits.
+## P0 priorities
+1. Genuine Gemini screenshot understanding through server-side API.
+2. Structured bounded goal plan with Zod validation.
+3. Approval UI and deterministic allowlisted local tool execution.
+4. Two-step real workflow using `create_local_task` and `append_work_note` if time permits.
+5. Execution ledger and truthful completion report.
+6. Error handling, README, repeatable demo and submission.
 
-## Working method
-- Work in small verifiable increments; report what changed, tests actually run, and remaining failures.
-- Ask only when missing information blocks progress; otherwise choose the smallest safe implementation.
-- Prefer the official `@google/genai` SDK and version-appropriate docs, not deprecated unofficial packages.
-- Do not claim tests passed unless actually executed; do not fabricate API responses, screenshots, links, features or submission status.
-- Keep dependency count small, versions pinned via lockfile and commits auditable.
-- Honor the user's stated consent boundaries. AI suggestions are data; executing a real-world action requires approval and an allowlisted handler.
-- No unapproved third-party AI APIs or external payment dependencies.
+## Engineering constraints
+- Never expose/commit Gemini key or fabricate model/tool outcomes.
+- Do not run model-suggested shell commands, arbitrary code, file modifications or OS actions.
+- Treat screenshots and model output as untrusted. Validate and cap action count.
+- User can reject/stop; no side effects before approval.
+- Use official `@google/genai` SDK; select model after verifying actual access.
+- Small increments, tests actually run, honest failure reporting, minimal dependencies.
+- Gemini is runtime intelligence; technical planning may use other permitted assistants. Record AI tool credits.
+- Preserve conceptual boundaries for future Electron and alternative cloud/local model adapters; do not implement those future capabilities today.
 
-## Implementation sequence once permitted
-Scaffold -> server-side Gemini health check -> image + text interaction -> robust error handling -> strict action proposal schema -> approval UI + local task -> README/demo -> optional voice.
+## Build order after authorization
+Scaffold → Gemini image/goal request → structured plan → one approved tool → second tool → execution report → README/demo → optional voice.
 
 ## Definition of done
-A working repeatable demonstration, README/submission with Google AI integration and credits, secure handling of API key, at least one passing end-to-end manually witnessed screenshot interaction and an explicit approve/reject behavior. Finish the submission by the internal 12:15 PM target where possible.
-
-## Product separation
-Do not conflate tomorrow's web MVP with the full Windows-first Electron/TypeScript Jarvis roadmap. The future product will require deeper privacy, permissions, OS integrations and lifecycle design; not part of this submission.
+One witnessed live screenshot-to-plan-to-approved-actions-to-observed-results demonstration, no leaked secrets, documented limitations, submission completed before deadline.
