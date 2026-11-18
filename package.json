@@ -1,0 +1,38 @@
+{
+  "name": "jarvis-agent",
+  "version": "1.0.0",
+  "description": "Jarvis - Gemini-powered supervised agentic workspace companion",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "tsx watch src/server/index.ts",
+    "dev:client": "vite",
+    "build": "vite build && tsc -p tsconfig.server.json",
+    "preview": "vite preview",
+    "start": "node dist/server/server/index.js",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@google/genai": "^3.5.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "lucide-react": "^0.475.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.13.4",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.2",
+    "typescript": "^5.7.3",
+    "tsx": "^4.19.3",
+    "vite": "^6.1.1",
+    "vitest": "^3.0.6"
+  }
+}
